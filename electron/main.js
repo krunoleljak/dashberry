@@ -12,6 +12,7 @@ let tray;
 // Fix for Linux sandbox error: The SUID sandbox helper binary was found, but is not configured correctly.
 if (process.platform === 'linux') {
     app.commandLine.appendSwitch('no-sandbox');
+    app.commandLine.appendSwitch('disable-dev-shm-usage');
 }
 
 function createWindow() {

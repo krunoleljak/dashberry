@@ -5,7 +5,7 @@
             "name": "Dev Mode (Hot Reload)",
             "type": "node",
             "request": "launch",
-            "runtimeExecutable": "npm",
+            "runtimeExecutable": "/home/kruno/.nvm/versions/node/v22.12.0/bin/npm",
             "runtimeArgs": [
                 "run",
                 "dev"
@@ -50,7 +50,7 @@
             "name": "Package Linux x64",
             "type": "node",
             "request": "launch",
-            "runtimeExecutable": "npm",
+            "runtimeExecutable": "/home/kruno/.nvm/versions/node/v22.12.0/bin/npm",
             "runtimeArgs": [
                 "run",
                 "package:x64"
@@ -62,10 +62,22 @@
             "name": "Package Linux ARM64",
             "type": "node",
             "request": "launch",
-            "runtimeExecutable": "npm",
+            "runtimeExecutable": "/home/kruno/.nvm/versions/node/v22.12.0/bin/npm",
             "runtimeArgs": [
                 "run",
                 "package:arm64"
+            ],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Deploy to RPi",
+            "type": "node",
+            "request": "launch",
+            "runtimeExecutable": "/home/kruno/.nvm/versions/node/v22.12.0/bin/npm",
+            "runtimeArgs": [
+                "run",
+                "deploy-to-rpi"
             ],
             "cwd": "${workspaceFolder}",
             "console": "integratedTerminal"

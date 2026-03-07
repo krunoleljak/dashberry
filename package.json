@@ -14,10 +14,12 @@
     "dev:electron": "cross-env NODE_ENV=development electron . --no-sandbox",
     "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\" \"npm run dev:electron\"",
     "build:frontend": "cd frontend && npm run build -- --configuration production",
-    "build:backend": "cd backend && dotnet publish -c Release -o dist-backend",
+    "build:backend": "cd backend && rm -rf dist-backend && dotnet publish -c Release -r linux-x64 --self-contained true -o dist-backend",
+    "build:backend:arm64": "cd backend && rm -rf dist-backend && dotnet publish -c Release -r linux-arm64 --self-contained true -o dist-backend",
     "build": "npm run build:frontend && npm run build:backend",
     "package:x64": "npm run build && electron-builder --linux --x64",
-    "package:arm64": "npm run build && electron-builder --linux --arm64"
+    "package:arm64": "npm run build:backend:arm64 && npm run build:frontend && electron-builder --linux --arm64 -c.linux.target=dir",
+    "deploy-to-rpi": "npm run package:arm64 && rsync -avz --delete release/linux-arm64-unpacked/ kruno@rpi:~/dashberry/"
   },
   "dependencies": {
     "electron-log": "^5.4.3",
