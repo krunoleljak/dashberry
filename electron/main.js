@@ -47,10 +47,12 @@ function createWindow() {
     tray = new Tray(path.join(__dirname, 'icon.png')); // We will need a placeholder icon
     const contextMenu = Menu.buildFromTemplate([
         { label: 'Show', click: () => mainWindow.show() },
-        { label: 'Quit', click: () => {
-            app.isQuitting = true;
-            app.quit();
-        }}
+        {
+            label: 'Quit', click: () => {
+                app.isQuitting = true;
+                app.quit();
+            }
+        }
     ]);
     tray.setToolTip('Dashberry');
     tray.setContextMenu(contextMenu);
@@ -66,9 +68,9 @@ app.whenReady().then(() => {
         // In production, launch the backend
         const backendPath = path.join(process.resourcesPath, 'backend', 'backend');
         log.info(`Spawning backend at: ${backendPath}`);
-        
+
         backendProcess = spawn(backendPath, [], { stdio: 'pipe' });
-        
+
         backendProcess.stdout.on('data', (data) => log.info(`[Backend] ${data}`));
         backendProcess.stderr.on('data', (data) => log.error(`[Backend ERR] ${data}`));
         backendProcess.on('close', (code) => log.info(`Backend exited with code ${code}`));

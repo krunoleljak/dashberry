@@ -29,3 +29,4 @@ app.MapControllers();
 app.MapGet("/api/health", () => Results.Ok(new { status = "healthy" }))
     .WithName("HealthCheck");
 
+app.Run();

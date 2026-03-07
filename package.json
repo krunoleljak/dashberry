@@ -16,8 +16,8 @@
     "build:frontend": "cd frontend && npm run build -- --configuration production",
     "build:backend": "cd backend && dotnet publish -c Release -o dist-backend",
     "build": "npm run build:frontend && npm run build:backend",
-    "package:x64": "electron-builder --linux --x64",
-    "package:arm64": "electron-builder --linux --arm64"
+    "package:x64": "npm run build && electron-builder --linux --x64",
+    "package:arm64": "npm run build && electron-builder --linux --arm64"
   },
   "dependencies": {
     "electron-log": "^5.4.3",
