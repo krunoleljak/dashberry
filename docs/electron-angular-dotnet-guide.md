@@ -38,7 +38,7 @@ Three layers, each doing what it does best:
 #### 🔷 ASP.NET Core (Backend)
 
 *   REST API endpoints
-*   Database access (EF Core)
+*   JSON file storage (no database needed)
 *   Business logic
 *   You already know this ✅
 
@@ -67,7 +67,7 @@ my-dashboard/
 │ ├── Controllers/ \# API controllers  
 │ ├── Models/ \# Data models  
 │ ├── Services/ \# Business logic  
-│ ├── Data/ \# EF Core DbContext  
+│ ├── Data/ \# JSON file storage  
 │ ├── Program.cs  
 │ └── backend.csproj  
 │  
@@ -157,8 +157,7 @@ Add a systemd service or `~/.config/autostart` entry so the dashboard launches a
 
 #### ASP.NET Core Backend
 
-*   `Microsoft.EntityFrameworkCore`
-*   `Npgsql` or `SQLite` — database
+*   `System.Text.Json` — JSON file persistence (built-in)
 *   `Swashbuckle` — OpenAPI / Swagger docs
 *   `SignalR` — real-time data push
 
