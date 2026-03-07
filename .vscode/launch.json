@@ -45,6 +45,30 @@
             "name": ".NET Core Attach",
             "type": "coreclr",
             "request": "attach"
+        },
+        {
+            "name": "Package Linux x64",
+            "type": "node",
+            "request": "launch",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": [
+                "run",
+                "package:x64"
+            ],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Package Linux ARM64",
+            "type": "node",
+            "request": "launch",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": [
+                "run",
+                "package:arm64"
+            ],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal"
         }
     ]
 }

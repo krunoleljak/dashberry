@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Dashberry
+Comment=Desktop Dashboard
+# Requires installing the AppImage or extracted package to /opt/Dashberry
+Exec=/opt/Dashberry/dashberry
+Icon=dashberry
+Terminal=false
+Categories=Utility;
+X-GNOME-Autostart-enabled=true

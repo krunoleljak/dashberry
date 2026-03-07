@@ -5,3 +5,5 @@ obj/
 data/
 *.log
 .DS_Store
+release/
+backend/dist-backend

@@ -36,6 +36,20 @@
                 "${workspaceFolder}/backend/backend.csproj"
             ],
             "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "Package Linux x64",
+            "type": "npm",
+            "script": "package:x64",
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "Package Linux ARM64",
+            "type": "npm",
+            "script": "package:arm64",
+            "group": "build",
+            "problemMatcher": []
         }
     ]
 }

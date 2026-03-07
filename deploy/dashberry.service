@@ -1,0 +1,15 @@
+[Unit]
+Description=Dashberry Dashboard
+After=graphical-session.target
+Wants=graphical-session.target
+
+[Service]
+Type=simple
+Environment=DISPLAY=:0
+# Requires installing the AppImage or extracted package to /opt/Dashberry
+ExecStart=/opt/Dashberry/dashberry
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=graphical-session.target

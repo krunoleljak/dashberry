@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Desktop dashboard app",
   "main": "electron/main.js",
+  "author": {
+    "name": "Kruno Leljak",
+    "email": "leljak@gmail.com"
+  },
   "scripts": {
     "start": "electron .",
     "dev:frontend": "cd frontend && npx cross-env ELECTRON_RUN_AS_NODE=1 electron ./node_modules/@angular/cli/bin/ng.js serve",
@@ -10,15 +14,47 @@
     "dev:electron": "cross-env NODE_ENV=development electron . --no-sandbox",
     "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\" \"npm run dev:electron\"",
     "build:frontend": "cd frontend && npm run build -- --configuration production",
-    "build:backend": "cd backend && dotnet publish -c Release",
-    "build": "npm run build:frontend && npm run build:backend"
+    "build:backend": "cd backend && dotnet publish -c Release -o dist-backend",
+    "build": "npm run build:frontend && npm run build:backend",
+    "package:x64": "electron-builder --linux --x64",
+    "package:arm64": "electron-builder --linux --arm64"
+  },
+  "dependencies": {
+    "electron-log": "^5.4.3",
+    "wait-on": "^9.0.4"
   },
   "devDependencies": {
     "concurrently": "^9.2.1",
     "cross-env": "^10.1.0",
     "electron": "^40.8.0",
-    "electron-builder": "^26.8.1",
-    "electron-log": "^5.4.3",
-    "wait-on": "^9.0.4"
+    "electron-builder": "^26.8.1"
+  },
+  "build": {
+    "appId": "com.dashberry.app",
+    "productName": "Dashberry",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "electron/**/*",
+      "frontend/dist/frontend/browser/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "backend/dist-backend",
+        "to": "backend",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ],
+    "linux": {
+      "target": [
+        "deb",
+        "tar.gz"
+      ],
+      "category": "Utility"
+    }
   }
 }
