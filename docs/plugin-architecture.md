@@ -1,7 +1,7 @@
 # Dashboard Plugin Architecture
 ## IWidget Interface Contract & Implementation Guide
 
-> Stack: Electron + Angular + ASP.NET Core  
+> Stack: Electron + Angular 21 (Signals) + ASP.NET Core 9  
 > Target: Ubuntu AMD64 (dev) · Raspberry Pi 4/5 ARM64 (deploy)
 
 ---
@@ -59,36 +59,6 @@ Settings fields define the configuration UI Angular renders automatically.
 
 ---
 
-## C# Plugin — Full Example
-
-A complete CPU monitor plugin implementing `IWidget`.
-
-### C# Plugin Project File
-
-> ⚠️ `Private="false"` and `ExcludeAssets="runtime"` are critical — the plugin DLL must NOT bundle `Dashboard.Contracts.dll`, the host app provides it.
-
----
-
-## Node Plugin Contract
-
-Node plugins communicate with the host via **stdio JSON messages** (simplest) or a **local HTTP server** (more flexible).
-
----
-
-## Node Plugin — Full Example
-
-GPIO temperature sensor on Raspberry Pi.
-
----
-
-## Plugin Host
-
-The ASP.NET Core service that discovers, loads, and manages plugins.
-
----
-
----
-
 ## Lifecycle & Error Handling
 
 ### Key rules
@@ -108,4 +78,4 @@ The ASP.NET Core service that discovers, loads, and manages plugins.
 
 ---
 
-*Last updated: March 2026 · Stack: .NET 8 · Angular 17 · Electron 28 · Node 20*
+*Last updated: March 2026 · Stack: .NET 9 · Angular 21 (Signals) · Electron 34 · Node 22 LTS*

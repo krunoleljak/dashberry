@@ -3,7 +3,7 @@
 ### Implementation Guide
 
 > Extends: `plugin-architecture.md` · `widget-layout.md`  
-> Angular 17 · Chart.js · ASP.NET Core 8 · GridStack
+> Angular 21 (Signals) · ngx-echarts (Apache ECharts) · ASP.NET Core 9 · GridStack
 
 ---
 
@@ -43,7 +43,7 @@ Displays current price, 24h change, and high/low for a single crypto or stock as
 
 ## 2. Multi-Asset Line Chart
 
-Displays price-over-time for one or more assets on the same chart, with a time range selector.
+Displays price-over-time for one or more assets on the same ECharts line series, with a time range selector.
 
 ---
 
@@ -61,7 +61,7 @@ Displays a configurable AI-generated summary panel for any topic. Users can ask 
 CoinGecko's free tier allows ~30 calls/minute with no API key. Yahoo Finance's unofficial endpoint works for stocks but is unsupported — consider Alpha Vantage or Polygon.io for production.
 
 **Line Chart — rate limiting:**
-With multiple symbols and a 60s refresh, CoinGecko's free tier is comfortable. For 1H range, reduce to 3 symbols max to stay within limits.
+With multiple symbols and a 60s refresh, CoinGecko's free tier is comfortable. For 1H range, reduce to 3 symbols max to stay within limits. ECharts' incremental rendering handles streaming updates efficiently.
 
 **AI Card — Ollama on Raspberry Pi:**
 Ollama runs `llama3.2:3b` or `gemma2:2b` comfortably on a Pi 5 (8GB). Ideal for an offline dashboard with no API key needed. Install: `curl -fsSL https://ollama.com/install.sh | sh`
@@ -71,4 +71,4 @@ The history array sent to the backend is the full conversation so far. Keep it b
 
 ---
 
-*Last updated: March 2026 · Angular 17 · Chart.js 4 · ASP.NET Core 8*
+*Last updated: March 2026 · Angular 21 (Signals) · ngx-echarts 21 (Apache ECharts) · ASP.NET Core 9*

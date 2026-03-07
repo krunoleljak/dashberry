@@ -2,7 +2,7 @@
 ## Customizable Dashboard Grid — Implementation Guide
 
 > Extends: `plugin-architecture.md`  
-> Library: GridStack.js · Storage: JSON files · Angular 17 · ASP.NET Core 8
+> Library: GridStack.js · Storage: JSON files · Angular 21 (Signals) · ASP.NET Core 9
 
 ---
 
@@ -90,4 +90,4 @@ The `default` layout:
 
 ---
 
-*Last updated: March 2026 · GridStack 10.x · Angular 17 · ASP.NET Core 8*
+*Last updated: March 2026 · GridStack 10.x · Angular 21 (Signals) · ASP.NET Core 9*

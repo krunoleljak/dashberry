@@ -24,7 +24,7 @@ Three layers, each doing what it does best:
 #### 🅰️ Angular (Frontend)
 
 *   Dashboard UI & widgets
-*   Charts (NgRx, Chart.js, etc.)
+*   Charts (Signals, ECharts, etc.)
 *   Calls .NET API via HTTP
 *   You already know this ✅
 
@@ -86,7 +86,7 @@ my-dashboard/
 
 #### Install prerequisites once
 
-Node.js + npm, .NET SDK 8, Angular CLI (`npm install -g @angular/cli`), Git
+Node.js 22 LTS + npm, .NET SDK 9, Angular CLI 21 (`npm install -g @angular/cli`), Git
 
 2
 
@@ -127,7 +127,7 @@ App runs on Pi ✅
 
 #### First time Pi setup (once)
 
-Install Node.js, .NET Runtime 8, Git on the Pi. Clone your repo. Takes ~30 minutes.
+Install Node.js 22 LTS, .NET Runtime 9, Git on the Pi. Clone your repo. Takes ~30 minutes.
 
 2
 
@@ -151,15 +151,15 @@ Add a systemd service or `~/.config/autostart` entry so the dashboard launches a
 #### Angular Frontend
 
 *   `@angular/material` — UI components
-*   `ng2-charts` — Chart.js wrapper
-*   `@ngrx/store` — state management
-*   `@angular/flex-layout` — responsive layout
+*   `ngx-echarts` + `echarts` — Apache ECharts wrapper (tree-shakeable)
+*   `@ngrx/signals` — signal-based state management (SignalStore)
+*   `@angular/cdk` — layout utilities (BreakpointObserver)
 
 #### ASP.NET Core Backend
 
 *   `Microsoft.EntityFrameworkCore`
 *   `Npgsql` or `SQLite` — database
-*   `Swashbuckle` — Swagger API docs
+*   `Swashbuckle` — OpenAPI / Swagger docs
 *   `SignalR` — real-time data push
 
 #### Electron
