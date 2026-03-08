@@ -1,0 +1,27 @@
+{
+  "appId": "com.dashberry.app",
+  "productName": "Dashberry",
+  "directories": {
+    "output": "release"
+  },
+  "files": [
+    "electron/**/*",
+    "frontend/dist/frontend/browser/**/*",
+    "package.json"
+  ],
+  "extraResources": [
+    {
+      "from": "backend/dist-backend/arm64",
+      "to": "backend",
+      "filter": [
+        "**/*"
+      ]
+    }
+  ],
+  "linux": {
+    "target": [
+      "dir"
+    ],
+    "category": "Utility"
+  }
+}

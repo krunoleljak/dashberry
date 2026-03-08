@@ -14,11 +14,11 @@
     "dev:electron": "cross-env NODE_ENV=development electron . --no-sandbox",
     "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\" \"npm run dev:electron\"",
     "build:frontend": "cd frontend && npm run build -- --configuration production",
-    "build:backend": "cd backend && rm -rf dist-backend && dotnet publish -c Release -r linux-x64 --self-contained true -o dist-backend",
-    "build:backend:arm64": "cd backend && rm -rf dist-backend && dotnet publish -c Release -r linux-arm64 --self-contained true -o dist-backend",
+    "build:backend": "cd backend && rm -rf dist-backend/x64 && dotnet publish -c Release -r linux-x64 --self-contained true -o dist-backend/x64",
+    "build:backend:arm64": "cd backend && rm -rf dist-backend/arm64 && dotnet publish -c Release -r linux-arm64 --self-contained true -o dist-backend/arm64",
     "build": "npm run build:frontend && npm run build:backend",
-    "package:x64": "npm run build && electron-builder --linux --x64",
-    "package:arm64": "npm run build:backend:arm64 && npm run build:frontend && electron-builder --linux --arm64 -c.linux.target=dir",
+    "package:x64": "npm run build && electron-builder --config electron-builder.x64.json --linux --x64",
+    "package:arm64": "npm run build:backend:arm64 && npm run build:frontend && electron-builder --config electron-builder.arm64.json --linux --arm64",
     "deploy-to-rpi": "npm run package:arm64 && rsync -avz --delete release/linux-arm64-unpacked/ kruno@rpi:~/dashberry/"
   },
   "dependencies": {
@@ -31,32 +31,5 @@
     "electron": "^40.8.0",
     "electron-builder": "^26.8.1"
   },
-  "build": {
-    "appId": "com.dashberry.app",
-    "productName": "Dashberry",
-    "directories": {
-      "output": "release"
-    },
-    "files": [
-      "electron/**/*",
-      "frontend/dist/frontend/browser/**/*",
-      "package.json"
-    ],
-    "extraResources": [
-      {
-        "from": "backend/dist-backend",
-        "to": "backend",
-        "filter": [
-          "**/*"
-        ]
-      }
-    ],
-    "linux": {
-      "target": [
-        "deb",
-        "tar.gz"
-      ],
-      "category": "Utility"
-    }
-  }
+  "build": {}
 }
