@@ -81,6 +81,43 @@
             ],
             "cwd": "${workspaceFolder}",
             "console": "integratedTerminal"
+        },
+        {
+            "name": "Fix AppArmor (Unprivileged Userns)",
+            "type": "node",
+            "request": "launch",
+            "runtimeExecutable": "sudo",
+            "runtimeArgs": [
+                "sysctl",
+                "-w",
+                "kernel.apparmor_restrict_unprivileged_userns=0"
+            ],
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Kill Port 5000",
+            "type": "node",
+            "request": "launch",
+            "runtimeExecutable": "sudo",
+            "runtimeArgs": [
+                "fuser",
+                "-k",
+                "5000/tcp"
+            ],
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Remove Dashberry",
+            "type": "node",
+            "request": "launch",
+            "runtimeExecutable": "sudo",
+            "runtimeArgs": [
+                "apt",
+                "remove",
+                "-y",
+                "dashberry"
+            ],
+            "console": "integratedTerminal"
         }
     ]
 }
