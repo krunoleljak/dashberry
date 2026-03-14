@@ -13,7 +13,7 @@ Build a plugin-based desktop dashboard that runs inside Electron, with an Angula
 
 ## Phases
 
-### Phase 1 — Project Scaffolding & Dev Tooling
+### Phase 1 — Project Scaffolding & Dev Tooling ✅ DONE
 
 Set up the monorepo structure, tooling, and `npm run dev` workflow.
 
@@ -108,7 +108,7 @@ Ship working plugins so the dashboard has content on first run.
 
 ---
 
-### Phase 7 — Electron Shell Polish
+### Phase 7 — Electron Shell Polish ✅ DONE
 
 | Step | What | Details |
 |---|---|---|
@@ -119,7 +119,7 @@ Ship working plugins so the dashboard has content on first run.
 
 ---
 
-### Phase 8 — Raspberry Pi Deployment
+### Phase 8 — Raspberry Pi Deployment 🚧 PARTIAL (8.1 done)
 
 | Step | What | Details |
 |---|---|---|
